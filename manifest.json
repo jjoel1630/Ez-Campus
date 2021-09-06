@@ -3,7 +3,14 @@
 	"description": "Extension to predict grades from the infinite campus portal",
 	"version": "1.0",
 	"manifest_version": 3,
+	"permissions": ["activeTab"],
 	"action": {
 		"default_popup": "popup.html"
-	}
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://*/*"],
+			"js": ["test.js"]
+		}
+	]
 }
