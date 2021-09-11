@@ -9,8 +9,10 @@
 	},
 	"content_scripts": [
 		{
-			"matches": ["https://*/*"],
-			"js": ["test.js"]
+			"matches": [
+				"https://fremontunifiedca.infinitecampus.org/campus/nav-wrapper/student/portal/student/classroom/*"
+			],
+			"js": ["embedPage.js"]
 		}
 	]
 }
