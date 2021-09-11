@@ -1,0 +1,15 @@
+body {
+    background-color: greenyellow;
+    }
+    h1 {
+        color: black;
+        text-align: center;
+    }
+
+    #grad1 {
+        background-image: linear-gradient(#a0ee45 , #71c777 , #33ce55);
+    }
+
+    p {
+        color: black;
+    }
