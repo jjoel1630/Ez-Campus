@@ -2,14 +2,27 @@ body {
     background-color: greenyellow;
     }
     h1 {
-        color: black;
+        color: white;
         text-align: center;
     }
 
     #grad1 {
-        background-image: linear-gradient(#a0ee45 , #71c777 , #33ce55);
+        background-image: linear-gradient(#33ce55 , #71c777 , #2cb44a);
     }
 
     p {
         color: black;
     }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    body {
+        min-width:600px;
+        min-height:300px;
+    }
+    h2 {
+        text-align: center;
+    }
+    
