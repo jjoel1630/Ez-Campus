@@ -3,15 +3,18 @@
 	"description": "Extension to predict grades from the infinite campus portal",
 	"version": "1.0",
 	"manifest_version": 3,
-	"permissions": ["activeTab", "scripting"],
+	"permissions": ["activeTab", "scripting", "storage", "webRequest", "webNavigation"],
+	"host_permissions": ["*://*.org/"],
 	"action": {
 		"default_popup": "popup.html"
 	},
 	"content_scripts": [
 		{
 			"matches": ["https://fremontunifiedca.infinitecampus.org/*"],
-			"js": ["jquery-3.6.0.min.js", "embedPage.js"],
-			"run_at": "document_idle"
+			"js": ["jquery-3.6.0.min.js", "embedPage.js"]
 		}
-	]
+	],
+	"background": {
+		"service_worker": "background.js"
+	}
 }
