@@ -8,3 +8,6 @@ chrome.webRequest.onCompleted.addListener(
 	},
 	{ urls: ["*://*.org/"] }
 );
+// "background": {
+// 	"service_worker": "background.js"
+// }
