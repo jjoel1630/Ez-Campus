@@ -1,6 +1,6 @@
 {
 	"name": "Ez Campus",
-	"description": "Extension to predict grades from the infinite campus portal",
+	"description": "Ez Campus is an extension that allows students using the Infinite Campus web application to calculate their grade for a course.",
 	"version": "1.0",
 	"manifest_version": 3,
 	"permissions": ["storage", "activeTab"],

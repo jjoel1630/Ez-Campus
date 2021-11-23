@@ -1,71 +1,93 @@
 @font-face {
-    font-family: "Josefin-Sans";
-    src: url("./Josefin_Sans/static/JosefinSans-Regular.ttf");
+	font-family: "Josefin-Sans";
+	src: url("./Josefin_Sans/static/JosefinSans-Regular.ttf");
 }
 
 * {
-    font-family: "Josefin-Sans";
+	font-family: "Josefin-Sans";
 }
 
 body {
-    font-family: "Josefin-Sans";
-    max-height: 600px;
-    width: 600px;
-    overflow: auto;
+	max-height: 600px;
+	width: 600px;
+	overflow: auto;
 }
 
-.text {
-    font: normal 300 64px/1 'Josefin-Sans', sans-serif;
-    font-weight: 600;
-    font-size: 75px;
+.home-container {
+	background-color: #92c83e;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
 }
 
-.mini-para {
-    font: normal 300 64px/1 'Josefin-Sans', sans-serif;
-    font-weight: 300;
-    font-size: 75px;
+.home-content {
+	width: 100%;
 }
 
-.background {
-    font: normal 'Josefin-Sans', sans-serif;
-    background-color: rgb(40, 44, 52);
-    color: white;
+.home-title {
+	font-size: 75px;
+	color: white;
 }
 
-.button {
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
+.home-motto {
+	color: white;
+	font-size: 35px;
 }
 
-.button1 {
-    background-color: #92C83E;
-    color: white;
-    border: 2px solid white;
+.home-content > button {
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	background-color: #92c83e;
+	color: white;
+	border: 2px solid white;
 }
 
-.button1:hover {
-    background-color: #4CAF50;
-    color: white;
+.home-content > button:hover {
+	background-color: #4caf50;
+	color: white;
 }
 
-.button2 {
-    background-color: #92C83E;
-    color: white;
-    border: 2px solid white;
+.about-container {
+	background-color: rgb(40, 44, 52);
+	color: white;
 }
 
-.button2:hover {
-    background-color: #4CAF50;
-    color: white;
+.get-ez-camp-now-container {
+	height: 20vh;
+	width: 100%;
+	background-color: #92c83e;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
+.get-ez-camp-now-container > div > button {
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	background-color: #92c83e;
+	color: white;
+	border: 2px solid white;
+}
 
-/* 241, 238, 238 */
+.get-ez-camp-now-container > div > button:hover {
+	background-color: #4caf50;
+	color: white;
+}
