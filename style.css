@@ -1,61 +1,71 @@
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
+@font-face {
+    font-family: "Josefin-Sans";
+    src: url("./Josefin_Sans/static/JosefinSans-Regular.ttf");
+}
+
+* {
+    font-family: "Josefin-Sans";
+}
+
 body {
-	max-height:600px; 
-	width:600px;
-	overflow:auto;
- }
+    font-family: "Josefin-Sans";
+    max-height: 600px;
+    width: 600px;
+    overflow: auto;
+}
 
 .text {
-	font : normal 300 64px/1 'Josefin Sans', sans-serif;
-	font-weight: 600;
-	font-size: 75px;
+    font: normal 300 64px/1 'Josefin-Sans', sans-serif;
+    font-weight: 600;
+    font-size: 75px;
 }
 
 .mini-para {
-	font : normal 300 64px/1 'Josefin Sans', sans-serif;
-	font-weight: 300;
-	font-size: 75px;
+    font: normal 300 64px/1 'Josefin-Sans', sans-serif;
+    font-weight: 300;
+    font-size: 75px;
 }
 
 .background {
-	font : normal 'Josefin Sans', sans-serif;
-	background-color:rgb(40,44,52);
-	color:white;
+    font: normal 'Josefin-Sans', sans-serif;
+    background-color: rgb(40, 44, 52);
+    color: white;
 }
 
 .button {
-	border: none;
-	color: white;
-	padding: 16px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-  }
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
 
 .button1 {
-	background-color: #92C83E; 
-	color: white; 
-	border: 2px solid white;
-  }
-  
+    background-color: #92C83E;
+    color: white;
+    border: 2px solid white;
+}
+
 .button1:hover {
-	background-color: #4CAF50;
-	color: white;
-  }
-  
+    background-color: #4CAF50;
+    color: white;
+}
+
 .button2 {
-	background-color: #92C83E; 
-	color: white; 
-	border: 2px solid white;
-  }
-  
+    background-color: #92C83E;
+    color: white;
+    border: 2px solid white;
+}
+
 .button2:hover {
-	background-color: #4CAF50;
-	color: white;
-  }
+    background-color: #4CAF50;
+    color: white;
+}
+
 
 /* 241, 238, 238 */
