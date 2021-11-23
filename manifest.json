@@ -15,7 +15,7 @@
 				"https://fremontunifiedca.infinitecampus.org/campus/nav-wrapper/student/portal/student/classroom/*"
 			],
 			"css": ["styles/embedPage.css"],
-			"js": ["javascript/jquery-3.6.0.min.js", "javascript/content-script.js"]
+			"js": ["javascript/jquery-3.6.0.min.js", "javascript/content-script-neat.js"]
 		}
 	]
 }
