@@ -1,17 +1,61 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
 body {
 	max-height:600px; 
-	width:500px;
+	width:600px;
 	overflow:auto;
  }
 
 .text {
-	font-family: 'Great Vibes', cursive;
-	font-weight: 700;
+	font : normal 300 64px/1 'Josefin Sans', sans-serif;
+	font-weight: 600;
 	font-size: 75px;
 }
 
 .mini-para {
-	font-family: 'Great Vibes', cursive;
-	font-weight: bold;
+	font : normal 300 64px/1 'Josefin Sans', sans-serif;
+	font-weight: 300;
 	font-size: 75px;
 }
+
+.background {
+	font : normal 'Josefin Sans', sans-serif;
+	background-color:rgb(40,44,52);
+	color:white;
+}
+
+.button {
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+  }
+
+.button1 {
+	background-color: #92C83E; 
+	color: white; 
+	border: 2px solid white;
+  }
+  
+.button1:hover {
+	background-color: #4CAF50;
+	color: white;
+  }
+  
+.button2 {
+	background-color: #92C83E; 
+	color: white; 
+	border: 2px solid white;
+  }
+  
+.button2:hover {
+	background-color: #4CAF50;
+	color: white;
+  }
+
+/* 241, 238, 238 */
