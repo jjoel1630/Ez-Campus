@@ -63,7 +63,7 @@ body {
 }
 
 .get-ez-camp-now-container {
-	height: 20vh;
+	height: 30vh;
 	width: 100%;
 	background-color: #92c83e;
 	display: flex;
@@ -71,15 +71,15 @@ body {
 	align-items: center;
 }
 
-.get-ez-camp-now-container > div > button {
+.get-ez-camp-now-container > div > div > button {
 	border: none;
 	color: white;
 	padding: 16px 32px;
 	text-align: center;
 	text-decoration: none;
-	display: inline-block;
+	display: block;
 	font-size: 16px;
-	margin: 4px 2px;
+	margin: 0 auto;
 	transition-duration: 0.4s;
 	cursor: pointer;
 	background-color: #92c83e;
@@ -87,7 +87,21 @@ body {
 	border: 2px solid white;
 }
 
-.get-ez-camp-now-container > div > button:hover {
+.get-ez-camp-now-container > div > div > button:hover {
 	background-color: #4caf50;
 	color: white;
+}
+
+.review-container {
+	width: 100%;
+	height: 15vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-container {
+	width: 100%;
+	height: 55vh;
+	background-color: black;
 }
