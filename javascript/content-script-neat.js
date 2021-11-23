@@ -421,9 +421,6 @@ setTimeout(async () => {
 					clearInterval(titleInterval);
 					return;
 				}
-				console.log(
-					elm.contentWindow.document.querySelector("button.divider__header > div > div")
-				);
 				clearInterval(titleInterval);
 				main(elm);
 			}
