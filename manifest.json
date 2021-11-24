@@ -8,9 +8,8 @@
 		"default_popup": "popup.html"
 	},
 	"icons": {
-		"16": "images/logo48.png",
-		"48": "images/logo128.png",
-		"128": "images/newimagelogo.png"
+		"48": "images/logo48.png",
+		"128": "images/logo128.png"
 	},
 	"content_scripts": [
 		{
