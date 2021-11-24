@@ -77,8 +77,17 @@ const calcGradeBasedOnLocalDeleteObject = (title, e) => {
 	const deleteNewLocalStorage = [];
 	JSON.parse(localStorage.getItem("course_info"))[`${title}`].forEach((obj, idx) => {
 		deleteNewLocalStorage.push({});
-		if (obj.name === e.path[1].querySelectorAll("p")[1].textContent) {
-			let curScore = e.path[1].querySelectorAll("p")[0].textContent;
+		let curCatTemp = e.path[2].querySelectorAll("div > p")[1].textContent.split(" ");
+		curCatTemp.shift();
+		curCatTemp = curCatTemp.join(" ");
+		let curScoreTemp = e.path[2].querySelectorAll("div > p")[0].textContent.split(" ");
+		curScoreTemp.shift();
+		curScoreTemp = curScoreTemp.join(" ");
+		let curNameTemp = e.path[2].querySelectorAll("div > h4")[0].textContent.split(" ");
+		curNameTemp.shift();
+		curNameTemp = curNameTemp.join(" ");
+		if (obj.name === curCatTemp) {
+			let curScore = curScoreTemp;
 			let curScorePts = parseInt(curScore.split("/")[0]);
 			let curScoreTotalPts = parseInt(curScore.split("/")[1]);
 
@@ -281,7 +290,8 @@ const main = (iframeContainer) => {
 		const newAssignment = document.createElement("div");
 		// GET ASSIGNMENT NAME VALUE FROM FORM
 		const name = document.createElement("h4");
-		name.textContent =
+		name.innerHTML =
+			"<strong>Name</strong>: " +
 			iframeContainer.contentWindow.document.querySelector("#name-unique-id").value;
 		// GET ASSIGNMENT SCORE VALUE FROM FORM
 		const score = document.createElement("p");
@@ -289,10 +299,11 @@ const main = (iframeContainer) => {
 			iframeContainer.contentWindow.document.querySelector("#first-score-unique-id").value;
 		const secondTotalValue =
 			iframeContainer.contentWindow.document.querySelector("#second-score-unique-id").value;
-		score.textContent = `${firstTotalValue}/${secondTotalValue}`;
+		score.innerHTML = `<strong>Score</strong>: ${firstTotalValue}/${secondTotalValue}`;
 		// GET CATEGORY FROM FORM
 		const category = document.createElement("p");
-		category.textContent =
+		category.innerHTML =
+			"<strong>Category</strong>: " +
 			iframeContainer.contentWindow.document.querySelector("#category-unique-id").value;
 
 		// CHECK TO SEE IF USER CHOSE CATEGORY
@@ -329,19 +340,67 @@ const main = (iframeContainer) => {
 		t[`${title}`] = formSubmitLocalObj;
 		localStorage.setItem("course_info", JSON.stringify(t));
 
-		console.log(score.textContent);
+		// console.log(score.textContent);
 
 		// ADD THE NEW ASSIGNMENT TO THE DOM
 		const deleteButton = document.createElement("button");
 		deleteButton.textContent = "delete";
 
-		newAssignment.appendChild(name);
-		newAssignment.appendChild(score);
-		newAssignment.appendChild(category);
-		newAssignment.appendChild(deleteButton);
+		const nameDiv = document.createElement("div");
+		css(nameDiv, {
+			display: "flex",
+			"justify-content": "center",
+			"align-items": "center",
+			"margin-right": "2rem",
+		});
+		nameDiv.appendChild(name);
+
+		const scoreDiv = document.createElement("div");
+		css(scoreDiv, {
+			display: "flex",
+			"justify-content": "center",
+			"align-items": "center",
+			"margin-right": "2rem",
+		});
+		scoreDiv.appendChild(score);
+
+		const categoryDiv = document.createElement("div");
+		css(categoryDiv, {
+			display: "flex",
+			"justify-content": "center",
+			"align-items": "center",
+			"margin-right": "2rem",
+		});
+		categoryDiv.appendChild(category);
+
+		const deleteBtnDiv = document.createElement("div");
+		css(deleteBtnDiv, {
+			display: "flex",
+			"justify-content": "center",
+			"align-items": "center",
+		});
+		deleteBtnDiv.appendChild(deleteButton);
+
+		newAssignment.appendChild(nameDiv);
+		newAssignment.appendChild(scoreDiv);
+		newAssignment.appendChild(categoryDiv);
+		newAssignment.appendChild(deleteBtnDiv);
 
 		newAssignment.id = `${name.textContent.split().join("-")}`;
-		css(newAssignment, { display: "flex" });
+		css(newAssignment, { display: "flex", "margin-bottom": "0.7rem" });
+		css(name, { margin: "0" });
+		css(score, { margin: "0" });
+		css(category, { margin: "0" });
+		css(deleteButton, {
+			margin: "0",
+			padding: "3px 7px",
+			height: "auto",
+			"background-color": "#99e0b2",
+			border: "0 none",
+			cursor: "pointer",
+			"border-radius": "5px",
+			height: "2rem",
+		});
 
 		// CHANGE THE CONTENT FROM NO ASSIGNMENTS TO ADDED ASSIGNMENTS
 		assignmentHeader.textContent = "Added Assignments:";
@@ -363,7 +422,7 @@ const main = (iframeContainer) => {
 			dt[`${title}`] = deleteNewLocalStorage;
 			localStorage.setItem("course_info", JSON.stringify(dt));
 
-			e.path[1].parentNode.removeChild(e.path[1]);
+			e.path[2].parentNode.removeChild(e.path[2]);
 			if (addedAssignments.querySelectorAll("div").length === 1)
 				assignmentHeader.textContent = "No assignments added.";
 		});

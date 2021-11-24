@@ -60,6 +60,9 @@ body {
 .about-container {
     background-color: rgb(40, 44, 52);
     color: white;
+    /* background-color: rgb(40, 44, 52); */
+    padding: 1rem;
+    color: black;
 }
 
 .get-ez-camp-now-container {
