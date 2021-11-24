@@ -15,13 +15,16 @@ const calcTotalGrade = (localStorageObject) => {
 
 const calcGradeBasedOnLocalObject = (title, category, firstTotalValue, secondTotalValue) => {
 	let newLocalStorage = [];
+	let newCatTemp = category.textContent.split(" ");
+	newCatTemp.shift();
+	newCatTemp = newCatTemp.join(" ");
 
 	JSON.parse(localStorage.getItem("course_info"))[`${title}`].forEach((obj, idx) => {
 		let scoreObj; // the score from the object
 		let weight; // the weight of the category
 		newLocalStorage.push({});
 		// IF THE CATEGORY IS THE OBJECT NAME --> THE ASSIGNMENT IS ADDED TO THAT CATEGORY
-		if (obj.name === category.textContent) {
+		if (obj.name === newCatTemp) {
 			// SPLIT THE SCORE PROPERTY FROM THE MAIN OBJECT
 			scoreObj = obj.score;
 			scoreObj = scoreObj.split("/");
