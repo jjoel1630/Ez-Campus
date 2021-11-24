@@ -429,9 +429,27 @@ const main = (iframeContainer) => {
 		});
 		deleteBtnDiv.appendChild(deleteButton);
 
+		// const categoryAvgDiv = document.createElement("div");
+		// css(categoryAvgDiv, {
+		// 	display: "flex",
+		// 	"justify-content": "center",
+		// 	"align-items": "center",
+		// });
+		// JSON.parse(localStorage.getItem("course_info"))[`${title}`].forEach((obj, idx) => {
+		// 	const tempCatAvgTag = document.createElement("p");
+
+		// 	tempCatAvgTag.innerHTML = `<strong>Category (${obj.name})</strong>: ${obj.percent.slice(
+		// 		1,
+		// 		-2
+		// 	)}`;
+
+		// 	categoryAvgDiv.appendChild(tempCatAvgTag);
+		// });
+
 		newAssignment.appendChild(nameDiv);
 		newAssignment.appendChild(scoreDiv);
 		newAssignment.appendChild(categoryDiv);
+		// newAssignment.appendChild(categoryAvgDiv);
 		newAssignment.appendChild(deleteBtnDiv);
 
 		newAssignment.id = `${name.textContent.split().join("-")}`;
