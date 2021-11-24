@@ -104,4 +104,28 @@ body {
 	width: 100%;
 	height: 55vh;
 	background-color: black;
+	padding-top: 3vh;
+}
+
+.footer-container > ul {
+	width: 100%;
+	height: 5vh;
+	display: flex;
+	justify-content: center;
+}
+
+.footer-container > ul > li {
+	list-style: none;
+	margin-left: 0.4rem;
+	color: white;
+}
+
+.footer-container > ul > li > a {
+	cursor: pointer;
+	text-decoration: none;
+	color: white;
+}
+
+.footer-container > ul > li > a:hover {
+	color: rgb(228, 228, 228);
 }
