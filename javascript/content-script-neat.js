@@ -310,7 +310,10 @@ const main = (iframeContainer) => {
 			iframeContainer.contentWindow.document.querySelector("#category-unique-id").value;
 
 		// CHECK TO SEE IF USER CHOSE CATEGORY
-		if (category.textContent === "default") {
+		if (
+			iframeContainer.contentWindow.document.querySelector("#category-unique-id").value ===
+			"default"
+		) {
 			css(errorDiv, {
 				width: "100%",
 				height: "3rem",
@@ -319,6 +322,48 @@ const main = (iframeContainer) => {
 				"align-items": "center",
 			});
 			errorMsg.textContent = "Please select a category";
+			return;
+		}
+
+		if (iframeContainer.contentWindow.document.querySelector("#name-unique-id").value === "") {
+			css(errorDiv, {
+				width: "100%",
+				height: "3rem",
+				display: "flex",
+				"justify-content": "center",
+				"align-items": "center",
+			});
+			errorMsg.textContent = "Please enter a name";
+			return;
+		}
+
+		if (
+			iframeContainer.contentWindow.document.querySelector("#first-score-unique-id").value ===
+			""
+		) {
+			css(errorDiv, {
+				width: "100%",
+				height: "3rem",
+				display: "flex",
+				"justify-content": "center",
+				"align-items": "center",
+			});
+			errorMsg.textContent = "Please enter a score";
+			return;
+		}
+
+		if (
+			iframeContainer.contentWindow.document.querySelector("#second-score-unique-id")
+				.value === ""
+		) {
+			css(errorDiv, {
+				width: "100%",
+				height: "3rem",
+				display: "flex",
+				"justify-content": "center",
+				"align-items": "center",
+			});
+			errorMsg.textContent = "Please enter a total score";
 			return;
 		}
 
