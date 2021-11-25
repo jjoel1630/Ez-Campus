@@ -691,7 +691,7 @@ setTimeout(async () => {
 					const div = document.createElement("div");
 					const header = document.createElement("h2");
 					header.textContent =
-						"Your Teacher has not chosen to add weights on your class, please read more here";
+						"Your Teacher has not chosen to add weights on your class. This version of Ez-Campus does not allow you to calculate grades when teachers have not chosen to show the weightages";
 					div.appendChild(header);
 					css(div, {
 						width: "100%",
@@ -699,12 +699,15 @@ setTimeout(async () => {
 						display: "flex",
 						"justify-content": "center",
 						"align-items": "center",
+						padding: "1.5rem",
+						"text-align": "center",
 					});
 					workspaceDiv.prepend(div);
 					clearInterval(titleInterval);
 					return;
 				}
 				clearInterval(titleInterval);
+				// console.log(elm.contentWindow.document.querySelectorAll("kendo-buttongroup"));
 				main(elm);
 			}
 		}, 1000);
