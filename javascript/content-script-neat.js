@@ -680,7 +680,10 @@ setTimeout(async () => {
 	const title = elm.contentWindow.document.querySelector(".card__header.sticky.z-10");
 	if (!title) {
 		const titleInterval = setInterval(() => {
-			if (elm.contentWindow.document.querySelector(".card__header.sticky.z-10")) {
+			if (
+				elm.contentWindow.document.querySelector(".card__header.sticky.z-10") &&
+				elm.contentWindow.document.querySelector("kendo-buttongroup > button")
+			) {
 				if (
 					!elm.contentWindow.document
 						.querySelectorAll("button.divider__header > div")[0]
@@ -707,8 +710,25 @@ setTimeout(async () => {
 					return;
 				}
 				clearInterval(titleInterval);
-				// console.log(elm.contentWindow.document.querySelectorAll("kendo-buttongroup"));
 				main(elm);
+				// const allTermsBtn = elm.contentWindow.document.querySelectorAll(
+				// 	"kendo-buttongroup > button"
+				// )[0];
+				// const len = elm.contentWindow.document.querySelectorAll(
+				// 	"kendo-buttongroup > button"
+				// ).length;
+				// const lastQBtn = elm.contentWindow.document.querySelectorAll(
+				// 	"kendo-buttongroup > button"
+				// )[len - 1];
+
+				// if (allTermsBtn["aria-pressed"] == "false") {
+				// 	allTermsBtn.addEventListener("click", (e) => {
+				// 		lastQBtn.addEventListener("click", (e) => {
+				// 			console.log(e, "main");
+				// 			// main(elm);
+				// 		});
+				// 	});
+				// }
 			}
 		}, 1000);
 	}
