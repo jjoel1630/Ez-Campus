@@ -14,7 +14,7 @@ body {
 }
 
 .home-container {
-	background-color:  #92c83e;
+	background-color: #92c83e;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -47,7 +47,7 @@ body {
 	margin: 4px 2px;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	background-color:  #92c83e;
+	background-color: #92c83e;
 	color: white;
 	border: 2px solid white;
 }
@@ -67,11 +67,19 @@ body {
 }
 
 .about-container > div {
-	padding: 10px 0 0 10px;
+	/* padding: 10px 0 0 10px; */
 	display: block;
-	width: 100vw;
+	width: 100%;
 }
 
+.about-container > div > div {
+	height: auto;
+	width: 100%;
+}
+
+.about-container > div > div > img {
+	width: 100%;
+}
 
 .get-ez-camp-now-container {
 	height: 30vh;
@@ -82,7 +90,6 @@ body {
 	align-items: center;
 	font-weight: bold;
 	font-size: 100px;
-	
 }
 
 .get-ez-camp-now-container > div > div > button {
@@ -142,4 +149,3 @@ body {
 .footer-container > ul > li > a:hover {
 	color: rgb(228, 228, 228);
 }
-
