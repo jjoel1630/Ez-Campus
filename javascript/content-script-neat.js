@@ -422,9 +422,19 @@ const main = (iframeContainer) => {
 		.prepend(addedAssignments);
 	iframeContainer.contentWindow.document.querySelector(".workspace-content").prepend(form);
 	iframeContainer.contentWindow.document.querySelector(".workspace-content").prepend(errorDiv);
+	const formTitle = document.createElement("h2");
+	formTitle.textContent = "Add New Assignments";
+	css(formTitle, { "margin-left": "32px", "margin-top": "1.4rem" });
+	iframeContainer.contentWindow.document.querySelector(".workspace-content").prepend(formTitle);
+	const categoryTitle = document.createElement("h2");
+	categoryTitle.textContent = "Edit Weightages and Total Score";
+	css(categoryTitle, { "margin-left": "32px", "margin-top": "1.4rem" });
 	iframeContainer.contentWindow.document
 		.querySelector(".workspace-content")
 		.prepend(categoryDivForm);
+	iframeContainer.contentWindow.document
+		.querySelector(".workspace-content")
+		.prepend(categoryTitle);
 
 	// WHEN FORM IS SUBMITTED
 	form.addEventListener("submit", (event) => {
