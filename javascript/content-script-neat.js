@@ -281,13 +281,14 @@ const main = (iframeContainer) => {
 			JSON.parse(localStorage.getItem("course_info"))[`${title}`].forEach((obj, idx) => {
 				newLocalChangeObject.push({});
 
-				if (obj.name === e.path[0][0].id.split("-")[0]) {
+				if (obj.name === e.path[0][0].id.split("-").slice(0, -2).join(" ")) {
 					newLocalChangeObject[idx].weight = `${newWeight}`;
 					newLocalChangeObject[idx].score = `${newScore1}/${newScore2}`;
 					newLocalChangeObject[idx].percent = `(${((newScore1 / newScore2) * 100).toFixed(
 						2
 					)}%)`;
 					newLocalChangeObject[idx].name = obj.name;
+					console.log(newLocalChangeObject);
 				} else {
 					newLocalChangeObject[idx].weight = obj.weight;
 					newLocalChangeObject[idx].score = obj.score;
