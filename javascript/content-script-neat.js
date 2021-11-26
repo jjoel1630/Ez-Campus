@@ -370,9 +370,10 @@ const main = (iframeContainer) => {
 	css(form, {
 		width: "100%",
 		height: "4rem",
-		display: "flex",
-		"justify-content": "center",
-		"align-items": "center",
+		"margin-left": "32px",
+		// display: "flex",
+		// "justify-content": "center",
+		// "align-items": "center",
 	});
 	css(selectCategories, { "margin-right": "0.5rem", height: "2rem" });
 	css(nameInput, { "margin-right": "0.5rem", padding: "0.3rem 0.5rem", height: "2rem" });
