@@ -3,7 +3,7 @@
 	"description": "Ez-Campus is an extension that allows students using the Infinite Campus web application to calculate their grade for a course.",
 	"version": "1.0",
 	"manifest_version": 3,
-	"permissions": ["storage"],
+	"permissions": [],
 	"action": {
 		"default_popup": "popup.html"
 	},
