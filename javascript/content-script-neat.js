@@ -654,6 +654,215 @@ const main = (iframeContainer) => {
 	});
 };
 
+const noWeightage = (iframeContainer) => {
+	const workspaceDiv = iframeContainer.contentWindow.document.querySelector(".workspace-content");
+	const div = document.createElement("div");
+	const header = document.createElement("h2");
+	header.textContent =
+		"Your Teacher has not chosen to add weights on your class. This version of Ez-Campus does not allow you to calculate grades when teachers have not chosen to show the weightages";
+	div.appendChild(header);
+	css(div, {
+		width: "100%",
+		height: "4rem",
+		display: "flex",
+		"justify-content": "center",
+		"align-items": "center",
+		padding: "1.5rem",
+		"text-align": "center",
+	});
+	workspaceDiv.prepend(div);
+
+	// const categoryDivForm = document.createElement("div");
+	// const errorCategoryDivFormMsg = document.createElement("div");
+	// const errorCategoryMsg = document.createElement("h3");
+	// errorCategoryMsg.textContent = "";
+	// errorCategoryDivFormMsg.appendChild(errorCategoryMsg);
+	// categoryDivForm.appendChild(errorCategoryDivFormMsg);
+	// css(errorCategoryDivFormMsg, { display: "none" });
+	// css(errorCategoryMsg, { color: "#99e0b2" });
+	// for (let i = 0; i < arrayOfCategories.length; i++) {
+	// 	const categoryTempForm = document.createElement("form");
+	// 	const labelCategory = document.createElement("p");
+	// 	labelCategory.textContent = `Change "${arrayOfCategories[i].name}" Score and Weight:`;
+	// 	const categoryScoreInp1 = document.createElement("input");
+	// 	categoryScoreInp1.placeholder = "Enter new score here";
+	// 	categoryScoreInp1.id = `${arrayOfCategories[i].name.split(" ").join("-")}-score1-change`;
+	// 	categoryScoreInp1.type = "number";
+	// 	categoryScoreInp1.min = 0;
+	// 	const categoryScoreInp2 = document.createElement("input");
+	// 	categoryScoreInp2.placeholder = "Enter new score here";
+	// 	categoryScoreInp2.id = `${arrayOfCategories[i].name.split(" ").join("-")}-score2-change`;
+	// 	categoryScoreInp2.type = "number";
+	// 	categoryScoreInp2.min = 1;
+	// 	const categoryWeightInp = document.createElement("input");
+	// 	categoryWeightInp.placeholder = "Enter new weight here";
+	// 	categoryWeightInp.id = `${arrayOfCategories[i].name.split(" ").join("-")}-weight-change`;
+	// 	categoryWeightInp.type = "number";
+	// 	categoryWeightInp.min = 1;
+	// 	const categoryUpdateSubmit = document.createElement("input");
+	// 	categoryUpdateSubmit.type = "submit";
+	// 	categoryUpdateSubmit.value = "Apply";
+
+	// 	categoryTempForm.appendChild(labelCategory);
+	// 	categoryTempForm.appendChild(categoryWeightInp);
+	// 	categoryTempForm.appendChild(categoryScoreInp1);
+	// 	categoryTempForm.appendChild(categoryScoreInp2);
+	// 	categoryTempForm.appendChild(categoryUpdateSubmit);
+	// 	categoryDivForm.appendChild(categoryTempForm);
+	// 	css(categoryDivForm, { "margin-left": "32px" });
+	// 	css(categoryTempForm, { display: "flex", "margin-top": "0.5rem" });
+	// 	css(labelCategory, { margin: "0 0.5rem 0 0" });
+	// 	css(categoryWeightInp, { "margin-right": "0.5rem", padding: "0.5rem" });
+	// 	css(categoryScoreInp1, { "margin-right": "0.5rem", padding: "0.5rem" });
+	// 	css(categoryScoreInp2, { "margin-right": "0.5rem", padding: "0.5rem" });
+	// 	css(categoryUpdateSubmit, {
+	// 		padding: "5px 15px",
+	// 		height: "auto",
+	// 		"background-color": "#99e0b2",
+	// 		border: "0 none",
+	// 		cursor: "pointer",
+	// 		"border-radius": "5px",
+	// 		height: "2rem",
+	// 	});
+
+	// 	categoryTempForm.addEventListener("submit", (e) => {
+	// 		e.preventDefault();
+
+	// 		const newLocalChangeObject = [];
+	// 		const newWeight = parseInt(e.path[0][0].value);
+	// 		const newScore1 = parseInt(e.path[0][1].value);
+	// 		const newScore2 = parseInt(e.path[0][2].value);
+	// 		if (!newWeight) {
+	// 			errorCategoryMsg.textContent = "Please enter a weight";
+	// 			css(errorCategoryDivFormMsg, {
+	// 				width: "100%",
+	// 				height: "3rem",
+	// 				display: "flex",
+	// 				"justify-content": "center",
+	// 				"align-items": "center",
+	// 			});
+	// 			return;
+	// 		}
+	// 		if (!newScore1) {
+	// 			errorCategoryMsg.textContent = "Please enter a score";
+	// 			css(errorCategoryDivFormMsg, {
+	// 				width: "100%",
+	// 				height: "3rem",
+	// 				display: "flex",
+	// 				"justify-content": "center",
+	// 				"align-items": "center",
+	// 			});
+	// 			return;
+	// 		}
+	// 		if (!newScore2) {
+	// 			errorCategoryMsg.textContent = "Please enter a total score";
+	// 			css(errorCategoryDivFormMsg, {
+	// 				width: "100%",
+	// 				height: "3rem",
+	// 				display: "flex",
+	// 				"justify-content": "center",
+	// 				"align-items": "center",
+	// 			});
+	// 			return;
+	// 		}
+
+	// 		css(errorCategoryDivFormMsg, { display: "none" });
+	// 		errorCategoryMsg.textContent = "";
+
+	// 		JSON.parse(localStorage.getItem("course_info"))[`${title}`].forEach((obj, idx) => {
+	// 			newLocalChangeObject.push({});
+
+	// 			if (obj.name === e.path[0][0].id.split("-").slice(0, -2).join(" ")) {
+	// 				newLocalChangeObject[idx].weight = `${newWeight}`;
+	// 				newLocalChangeObject[idx].score = `${newScore1}/${newScore2}`;
+	// 				newLocalChangeObject[idx].percent = `(${((newScore1 / newScore2) * 100).toFixed(
+	// 					2
+	// 				)}%)`;
+	// 				newLocalChangeObject[idx].name = obj.name;
+	// 				console.log(newLocalChangeObject);
+	// 			} else {
+	// 				newLocalChangeObject[idx].weight = obj.weight;
+	// 				newLocalChangeObject[idx].score = obj.score;
+	// 				newLocalChangeObject[idx].percent = obj.percent;
+	// 				newLocalChangeObject[idx].name = obj.name;
+	// 			}
+	// 		});
+
+	// 		let newLocalChangeObjectGrade = calcTotalGrade(newLocalChangeObject);
+	// 		newGradeGrade.textContent = `Calculated Grade: ${newLocalChangeObjectGrade.toFixed(
+	// 			2
+	// 		)}%`;
+	// 		let t = {};
+	// 		t[`${title}`] = newLocalChangeObject;
+	// 		newGrade.querySelectorAll("h3").forEach((tag, idx) => {
+	// 			tag.textContent = `${t[title][idx].name} (Weight: ${t[title][idx].weight}): ${t[title][idx].score}`;
+	// 		});
+	// 		localStorage.setItem("course_info", JSON.stringify(t));
+	// 	});
+	// }
+
+
+	// const formDiv = document.createElement("div");
+	// const form = document.createElement("form");
+	// const categoryName = document.createElement("input");
+	// categoryName.placeholder = "Enter the name here";
+	// const categoryWeight = document.createElement("input");
+	// categoryWeight.placeholder = "Enter the weight";
+	// categoryWeight.type = "number";
+	// const categoryTotalPointsEarned = document.createElement("input");
+	// categoryTotalPointsEarned.placeholder = "Enter the points earned";
+	// categoryTotalPointsEarned.type = "number";
+	// const categoryTotalPoints = document.createElement("input");
+	// categoryTotalPoints.placeholder = "Enter the total points possible";
+	// categoryTotalPoints.type = "number";
+	// const submitAddCategory = document.createElement("input");
+	// submitAddCategory.value = "Submit";
+	// submitAddCategory.type = "submit";
+	// const title = document.createElement("h2");
+	// title.textContent = "Add Category";
+
+	// form.appendChild(categoryName);
+	// form.appendChild(categoryWeight);
+	// form.appendChild(categoryTotalPointsEarned);
+	// form.appendChild(categoryTotalPoints);
+	// form.appendChild(submitAddCategory);
+
+	// formDiv.appendChild(title);
+	// formDiv.appendChild(form);
+
+	// workspaceDiv.prepend(formDiv);
+
+	// css(categoryName, { "margin-right": "0.5rem", padding: "0.3rem 0.5rem", height: "2rem" });
+	// css(categoryWeight, { "margin-right": "0.5rem", padding: "0.3rem 0.5rem", height: "2rem" });
+	// css(categoryTotalPointsEarned, {
+	// 	"margin-right": "0.5rem",
+	// 	padding: "0.3rem 0.5rem",
+	// 	height: "2rem",
+	// });
+	// css(categoryTotalPoints, {
+	// 	"margin-right": "0.5rem",
+	// 	padding: "0.3rem 0.5rem",
+	// 	height: "2rem",
+	// });
+	// css(submitAddCategory, {
+	// 	padding: "5px 15px",
+	// 	height: "auto",
+	// 	"background-color": "#99e0b2",
+	// 	border: "0 none",
+	// 	cursor: "pointer",
+	// 	"border-radius": "5px",
+	// 	height: "2rem",
+	// });
+	// css(form, { display: "flex", "align-items": "center" });
+	// css(formDiv, { "margin-left": "32px", "margin-top": "32px" });
+
+	// form.addEventListener("submit", (e) => {
+	// 	const addedCategoryDiv = document.createElement("div")
+	// 	e.preventDefault();
+	// 	console.log(e);
+	// });
+};
+
 setTimeout(async () => {
 	const iframeContainer = document.getElementById("main-workspace");
 	function waitForElm(item) {
@@ -690,23 +899,7 @@ setTimeout(async () => {
 						.querySelectorAll("button.divider__header > div")[0]
 						.querySelector("div")
 				) {
-					const workspaceDiv =
-						elm.contentWindow.document.querySelector(".workspace-content");
-					const div = document.createElement("div");
-					const header = document.createElement("h2");
-					header.textContent =
-						"Your Teacher has not chosen to add weights on your class. This version of Ez-Campus does not allow you to calculate grades when teachers have not chosen to show the weightages";
-					div.appendChild(header);
-					css(div, {
-						width: "100%",
-						height: "4rem",
-						display: "flex",
-						"justify-content": "center",
-						"align-items": "center",
-						padding: "1.5rem",
-						"text-align": "center",
-					});
-					workspaceDiv.prepend(div);
+					noWeightage(elm);
 					clearInterval(titleInterval);
 					return;
 				}
