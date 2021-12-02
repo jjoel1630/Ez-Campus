@@ -677,7 +677,7 @@ const noWeightage = (iframeContainer) => {
 	});
 	workspaceDiv.prepend(div);
 
-	// const formDiv = document.createElement("div");
+	const formDiv = document.createElement("div");
 	// const form = document.createElement("form");
 	// const categoryName = document.createElement("input");
 	// categoryName.placeholder = "Enter the name here";
