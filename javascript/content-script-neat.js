@@ -657,97 +657,147 @@ const main = (iframeContainer) => {
 const noWeightage = (iframeContainer) => {
 	const workspaceDiv = iframeContainer.contentWindow.document.querySelector(".workspace-content");
 
-	// const titleOfClass = iframeContainer.contentWindow.document
-	// 	.querySelector(".card__header.sticky.z-10")
-	// 	.textContent.trim();
+	const titleOfClass = iframeContainer.contentWindow.document
+		.querySelector(".card__header.sticky.z-10")
+		.textContent.trim();
 
-	const div = document.createElement("div");
-	const header = document.createElement("h2");
-	header.textContent =
-		"Your Teacher has not chosen to add weights on your class. This version of Ez-Campus does not allow you to calculate grades when teachers have not chosen to show the weightages";
-	div.appendChild(header);
-	css(div, {
-		width: "100%",
-		height: "4rem",
-		display: "flex",
-		"justify-content": "center",
-		"align-items": "center",
-		padding: "1.5rem",
-		"text-align": "center",
-	});
-	workspaceDiv.prepend(div);
+	// const div = document.createElement("div");
+	// const header = document.createElement("h2");
+	// header.textContent =
+	// 	"Your Teacher has not chosen to add weights on your class. This version of Ez-Campus does not allow you to calculate grades when teachers have not chosen to show the weightages";
+	// div.appendChild(header);
+	// css(div, {
+	// 	width: "100%",
+	// 	height: "4rem",
+	// 	display: "flex",
+	// 	"justify-content": "center",
+	// 	"align-items": "center",
+	// 	padding: "1.5rem",
+	// 	"text-align": "center",
+	// });
+	// workspaceDiv.prepend(div);
 
 	const formDiv = document.createElement("div");
-	// const form = document.createElement("form");
-	// const categoryName = document.createElement("input");
-	// categoryName.placeholder = "Enter the name here";
-	// const categoryWeight = document.createElement("input");
-	// categoryWeight.placeholder = "Enter the weight";
-	// categoryWeight.type = "number";
-	// const categoryTotalPointsEarned = document.createElement("input");
-	// categoryTotalPointsEarned.placeholder = "Enter the points earned";
-	// categoryTotalPointsEarned.type = "number";
-	// const categoryTotalPoints = document.createElement("input");
-	// categoryTotalPoints.placeholder = "Enter the total points possible";
-	// categoryTotalPoints.type = "number";
-	// const submitAddCategory = document.createElement("input");
-	// submitAddCategory.value = "Submit";
-	// submitAddCategory.type = "submit";
-	// const title = document.createElement("h2");
-	// title.textContent = "Add Category";
+	const form = document.createElement("form");
+	const categoryName = document.createElement("input");
+	categoryName.placeholder = "Enter the name here";
+	const categoryWeight = document.createElement("input");
+	categoryWeight.placeholder = "Enter the weight";
+	categoryWeight.type = "number";
+	const categoryTotalPointsEarned = document.createElement("input");
+	categoryTotalPointsEarned.placeholder = "Enter the points earned";
+	categoryTotalPointsEarned.type = "number";
+	const categoryTotalPoints = document.createElement("input");
+	categoryTotalPoints.placeholder = "Enter the total points possible";
+	categoryTotalPoints.type = "number";
+	const submitAddCategory = document.createElement("input");
+	submitAddCategory.value = "Submit";
+	submitAddCategory.type = "submit";
+	const title = document.createElement("h2");
+	title.textContent = "Add Category";
 
-	// form.appendChild(categoryName);
-	// form.appendChild(categoryWeight);
-	// form.appendChild(categoryTotalPointsEarned);
-	// form.appendChild(categoryTotalPoints);
-	// form.appendChild(submitAddCategory);
+	form.appendChild(categoryName);
+	form.appendChild(categoryWeight);
+	form.appendChild(categoryTotalPointsEarned);
+	form.appendChild(categoryTotalPoints);
+	form.appendChild(submitAddCategory);
 
-	// formDiv.appendChild(title);
-	// formDiv.appendChild(form);
+	formDiv.appendChild(title);
+	formDiv.appendChild(form);
 
-	// workspaceDiv.prepend(formDiv);
+	workspaceDiv.prepend(formDiv);
 
-	// css(categoryName, { "margin-right": "0.5rem", padding: "0.3rem 0.5rem", height: "2rem" });
-	// css(categoryWeight, { "margin-right": "0.5rem", padding: "0.3rem 0.5rem", height: "2rem" });
-	// css(categoryTotalPointsEarned, {
-	// 	"margin-right": "0.5rem",
-	// 	padding: "0.3rem 0.5rem",
-	// 	height: "2rem",
-	// });
-	// css(categoryTotalPoints, {
-	// 	"margin-right": "0.5rem",
-	// 	padding: "0.3rem 0.5rem",
-	// 	height: "2rem",
-	// });
-	// css(submitAddCategory, {
-	// 	padding: "5px 15px",
-	// 	height: "auto",
-	// 	"background-color": "#99e0b2",
-	// 	border: "0 none",
-	// 	cursor: "pointer",
-	// 	"border-radius": "5px",
-	// 	height: "2rem",
-	// });
-	// css(form, { display: "flex", "align-items": "center" });
-	// css(formDiv, { "margin-left": "32px", "margin-top": "32px" });
+	css(categoryName, { "margin-right": "0.5rem", padding: "0.3rem 0.5rem", height: "2rem" });
+	css(categoryWeight, { "margin-right": "0.5rem", padding: "0.3rem 0.5rem", height: "2rem" });
+	css(categoryTotalPointsEarned, {
+		"margin-right": "0.5rem",
+		padding: "0.3rem 0.5rem",
+		height: "2rem",
+	});
+	css(categoryTotalPoints, {
+		"margin-right": "0.5rem",
+		padding: "0.3rem 0.5rem",
+		height: "2rem",
+	});
+	css(submitAddCategory, {
+		padding: "5px 15px",
+		height: "auto",
+		"background-color": "#99e0b2",
+		border: "0 none",
+		cursor: "pointer",
+		"border-radius": "5px",
+		height: "2rem",
+	});
+	css(form, { display: "flex", "align-items": "center" });
+	css(formDiv, { "margin-left": "32px", "margin-top": "32px" });
 
-	// form.addEventListener("submit", (e) => {
-	// 	e.preventDefault();
-	// 	const currentCats = localStorage.getItem("new_categories")
-	// 		? JSON.parse(localStorage.getItem("new_categories")[`${titleOfClass}`])
-	// 		: [];
-	// 	currentCats.push({
-	// 		name: `${e.path[0][0].value}`,
-	// 		weight: `${e.path[0][1].value}`,
-	// 		score: `${e.path[0][2].value}/${e.path[0][3].value}`,
-	// 		percent: `(${(e.path[0][2].value / e.path[0][3].value) * 100}%)`,
-	// 	});
-	// 	console.log(currentCats);
-	// 	const tclass = {};
-	// 	tclass[`${titleOfClass}`] = currentCats;
-	// 	localStorage.setItem("new_categories", JSON.stringify(tclass));
-	// 	// const addedCategoryDiv = document.createElement("div");
-	// });
+	const addedCategoriesDiv = document.createElement("div");
+
+	form.addEventListener("submit", (e) => {
+		e.preventDefault();
+		const currentCats = localStorage.getItem("new_categories")
+			? JSON.parse(localStorage.getItem("new_categories"))[`${titleOfClass}`]
+			: [];
+		currentCats.push({
+			name: `${e.path[0][0].value}`,
+			weight: `${e.path[0][1].value}`,
+			score: `${e.path[0][2].value}/${e.path[0][3].value}`,
+			percent: `(${((e.path[0][2].value / e.path[0][3].value) * 100).toFixed(2)}%)`,
+		});
+		console.log(currentCats);
+		const tclass = {};
+		tclass[`${titleOfClass}`] = currentCats;
+		localStorage.setItem("new_categories", JSON.stringify(tclass));
+		const addedCategoryDiv = document.createElement("div");
+
+		for (let i = 0; i < currentCats.length; i++) {
+			const categoryTempForm = document.createElement("form");
+			const labelCategory = document.createElement("p");
+			labelCategory.textContent = `Change "${currentCats[i].name}" Score and Weight:`;
+			const categoryScoreInp1 = document.createElement("input");
+			categoryScoreInp1.placeholder = "Enter new score here";
+			categoryScoreInp1.id = `${currentCats[i].name.split(" ").join("-")}-score1-change`;
+			categoryScoreInp1.type = "number";
+			categoryScoreInp1.min = 0;
+			const categoryScoreInp2 = document.createElement("input");
+			categoryScoreInp2.placeholder = "Enter new score here";
+			categoryScoreInp2.id = `${currentCats[i].name.split(" ").join("-")}-score2-change`;
+			categoryScoreInp2.type = "number";
+			categoryScoreInp2.min = 1;
+			const categoryWeightInp = document.createElement("input");
+			categoryWeightInp.placeholder = "Enter new weight here";
+			categoryWeightInp.id = `${currentCats[i].name.split(" ").join("-")}-weight-change`;
+			categoryWeightInp.type = "number";
+			categoryWeightInp.min = 1;
+			const categoryUpdateSubmit = document.createElement("input");
+			categoryUpdateSubmit.type = "submit";
+			categoryUpdateSubmit.value = "Apply";
+
+			categoryTempForm.appendChild(labelCategory);
+			categoryTempForm.appendChild(categoryWeightInp);
+			categoryTempForm.appendChild(categoryScoreInp1);
+			categoryTempForm.appendChild(categoryScoreInp2);
+			categoryTempForm.appendChild(categoryUpdateSubmit);
+			categoryDivForm.appendChild(categoryTempForm);
+			css(categoryDivForm, { "margin-left": "32px" });
+			css(categoryTempForm, { display: "flex", "margin-top": "0.5rem" });
+			css(labelCategory, { margin: "0 0.5rem 0 0" });
+			css(categoryWeightInp, { "margin-right": "0.5rem", padding: "0.5rem" });
+			css(categoryScoreInp1, { "margin-right": "0.5rem", padding: "0.5rem" });
+			css(categoryScoreInp2, { "margin-right": "0.5rem", padding: "0.5rem" });
+			css(categoryUpdateSubmit, {
+				padding: "5px 15px",
+				height: "auto",
+				"background-color": "#99e0b2",
+				border: "0 none",
+				cursor: "pointer",
+				"border-radius": "5px",
+				height: "2rem",
+			});
+
+			addedCategoryDiv.appendChild(categoryDivForm);
+		}
+	});
 };
 
 setTimeout(async () => {
