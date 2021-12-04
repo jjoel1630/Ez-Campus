@@ -655,6 +655,8 @@ const main = (iframeContainer) => {
 };
 
 const noWeightage = (iframeContainer) => {
+	localStorage.clear();
+
 	const workspaceDiv = iframeContainer.contentWindow.document.querySelector(".workspace-content");
 
 	const titleOfClass = iframeContainer.contentWindow.document
@@ -731,10 +733,12 @@ const noWeightage = (iframeContainer) => {
 	css(form, { display: "flex", "align-items": "center" });
 	css(formDiv, { "margin-left": "32px", "margin-top": "32px" });
 
-	const addedCategoriesDiv = document.createElement("div");
-
 	form.addEventListener("submit", (e) => {
 		e.preventDefault();
+		if (iframeContainer.contentWindow.document.querySelector("#addedCategoriesDiv")) {
+			iframeContainer.contentWindow.document.querySelector("#addedCategoriesDiv").innerHTML =
+				"";
+		}
 		const currentCats = localStorage.getItem("new_categories")
 			? JSON.parse(localStorage.getItem("new_categories"))[`${titleOfClass}`]
 			: [];
@@ -744,13 +748,15 @@ const noWeightage = (iframeContainer) => {
 			score: `${e.path[0][2].value}/${e.path[0][3].value}`,
 			percent: `(${((e.path[0][2].value / e.path[0][3].value) * 100).toFixed(2)}%)`,
 		});
-		console.log(currentCats);
 		const tclass = {};
 		tclass[`${titleOfClass}`] = currentCats;
 		localStorage.setItem("new_categories", JSON.stringify(tclass));
-		const addedCategoryDiv = document.createElement("div");
+		console.log(currentCats);
+		const addedCategoriesDiv = document.createElement("div");
+		addedCategoriesDiv.id = "addedCategoriesDiv";
 
 		for (let i = 0; i < currentCats.length; i++) {
+			const addedCategoryDiv = document.createElement("div");
 			const categoryTempForm = document.createElement("form");
 			const labelCategory = document.createElement("p");
 			labelCategory.textContent = `Change "${currentCats[i].name}" Score and Weight:`;
@@ -772,14 +778,16 @@ const noWeightage = (iframeContainer) => {
 			const categoryUpdateSubmit = document.createElement("input");
 			categoryUpdateSubmit.type = "submit";
 			categoryUpdateSubmit.value = "Apply";
+			const deleteAddedCategory = document.createElement("input");
+			deleteAddedCategory.type = "submit";
+			deleteAddedCategory.value = "Delete";
 
 			categoryTempForm.appendChild(labelCategory);
 			categoryTempForm.appendChild(categoryWeightInp);
 			categoryTempForm.appendChild(categoryScoreInp1);
 			categoryTempForm.appendChild(categoryScoreInp2);
 			categoryTempForm.appendChild(categoryUpdateSubmit);
-			categoryDivForm.appendChild(categoryTempForm);
-			css(categoryDivForm, { "margin-left": "32px" });
+			categoryTempForm.appendChild(deleteAddedCategory);
 			css(categoryTempForm, { display: "flex", "margin-top": "0.5rem" });
 			css(labelCategory, { margin: "0 0.5rem 0 0" });
 			css(categoryWeightInp, { "margin-right": "0.5rem", padding: "0.5rem" });
@@ -794,9 +802,29 @@ const noWeightage = (iframeContainer) => {
 				"border-radius": "5px",
 				height: "2rem",
 			});
+			css(deleteAddedCategory, {
+				padding: "5px 15px",
+				height: "auto",
+				"background-color": "#99e0b2",
+				border: "0 none",
+				cursor: "pointer",
+				"border-radius": "5px",
+				height: "2rem",
+			});
 
-			addedCategoryDiv.appendChild(categoryDivForm);
+			addedCategoryDiv.appendChild(categoryTempForm);
+			addedCategoriesDiv.appendChild(addedCategoryDiv);
+
+			categoryTempForm.addEventListener("submit", (e) => {
+				e.preventDefault();
+				if (e.submitter.value === "Delete") {
+					const deleteCategoryLocalObj =
+						localStorage.getItem("new_categories")[`${titleOfClass}`];
+				}
+			});
 		}
+
+		workspaceDiv.prepend(addedCategoriesDiv);
 	});
 };
 
